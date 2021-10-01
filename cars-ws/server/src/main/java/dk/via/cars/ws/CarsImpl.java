@@ -3,6 +3,7 @@ package dk.via.cars.ws;
 import dk.via.cars.CarDTO;
 import dk.via.cars.MoneyDTO;
 
+import javax.jws.WebParam;
 import javax.jws.WebService;
 
 @WebService(endpointInterface = "dk.via.cars.ws.Cars")
@@ -13,7 +14,7 @@ public class CarsImpl implements Cars {
 		carDAO = new CarDAO();
 	}
 
-	public CarDTO create(String licenseNo, String model, int year, MoneyDTO price)  {
+	public CarDTO create(@WebParam(name = "licenseNo") String licenseNo, String model, int year, MoneyDTO price)  {
 		return carDAO.create(licenseNo, model, year, price);
 	}
 

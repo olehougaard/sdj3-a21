@@ -19,16 +19,14 @@ public class CarsTest {
 		GenericType<ArrayList<Car>> carDTOArrayListType = new GenericType<ArrayList<Car>>() {
 		};
 		ArrayList<Car> allCars = target.path("cars").request().accept(MediaType.APPLICATION_JSON).get(carDTOArrayListType);
-		for(Car car: allCars) {
-			System.out.println(car);
-		}
+		System.out.println(allCars);
 
 		System.out.println();
 		Car newCar = new Car("123456", "Tesla", 2017, new Money(new BigDecimal(1000000), "EUR"));
 		target.path("cars").request(MediaType.APPLICATION_JSON).post(Entity.json(newCar));
 		allCars = target.path("cars").request().accept(MediaType.APPLICATION_JSON).get(carDTOArrayListType);
 		for(Car car: allCars) {
-			System.out.println(car);
+			System.out.println(allCars);
 		}
 
 		System.out.println();
