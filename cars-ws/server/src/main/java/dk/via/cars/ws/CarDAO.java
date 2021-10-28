@@ -13,7 +13,7 @@ public class CarDAO {
 	private DatabaseHelper<CarDTO> helper;
 
 	public CarDAO() {
-		helper = new DatabaseHelper<>("jdbc:postgresql://localhost:5433/postgres?currentSchema=car_base", "postgres", "password");
+		helper = new DatabaseHelper<>("jdbc:postgresql://localhost:5432/postgres?currentSchema=car_base", "postgres", "password");
 	}
 
 	public CarDTO create(String licenseNo, String model, int year, MoneyDTO price)  {

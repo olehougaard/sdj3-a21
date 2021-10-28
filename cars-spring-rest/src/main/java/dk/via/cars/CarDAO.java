@@ -12,7 +12,7 @@ import java.util.List;
 public class CarDAO implements Cars {
 	private final DatabaseHelper<Car> helper;
 
-	private final static String JDBC_URL = "jdbc:postgresql://localhost:5433/postgres?currentSchema=car_base";
+	private final static String JDBC_URL = "jdbc:postgresql://localhost:5432/postgres?currentSchema=car_base";
 
 	private final static String USERNAME = "postgres";
 
