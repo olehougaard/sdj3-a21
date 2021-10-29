@@ -1,7 +1,5 @@
 package dk.via.pubSub;
 
-import dk.via.mq.MessageQueueSystem;
-
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.concurrent.TimeoutException;
