@@ -20,14 +20,14 @@ public class MessageQueueSystem implements Closeable {
         channel = connection.createChannel();
     }
 
-    public void send(String QUEUE_NAME, String message) throws IOException {
-        channel.queueDeclare(QUEUE_NAME, false, false, false, null);
-        channel.basicPublish("", QUEUE_NAME, null, message.getBytes(StandardCharsets.UTF_8));
+    public void send(String queueName, String message) throws IOException {
+        channel.queueDeclare(queueName, false, false, false, null);
+        channel.basicPublish("", queueName, null, message.getBytes(StandardCharsets.UTF_8));
     }
 
-    public void receive(String QUEUE_NAME, Consumer consumer) throws IOException {
-        channel.queueDeclare(QUEUE_NAME, false, false, false, null);
-        channel.basicConsume(QUEUE_NAME, true, (consumerTag, delivery) -> {
+    public void receive(String queueName, Consumer consumer) throws IOException {
+        channel.queueDeclare(queueName, false, false, false, null);
+        channel.basicConsume(queueName, true, (consumerTag, delivery) -> {
             String message = new String(delivery.getBody(), StandardCharsets.UTF_8);
             consumer.notify(message);
         }, consumerTag -> {

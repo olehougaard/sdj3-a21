@@ -23,7 +23,7 @@ public class Publisher implements Closeable {
         channel.exchangeDeclare(name, "topic");
     }
 
-    public void publish(String[] topics, String message) throws IOException {
+    public void publish(String message, String... topics) throws IOException {
         String topic = String.join(".", topics);
         channel.basicPublish(name, topic, null, message.getBytes(StandardCharsets.UTF_8));
     }
