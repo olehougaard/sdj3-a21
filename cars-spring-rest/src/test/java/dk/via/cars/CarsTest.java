@@ -18,7 +18,7 @@ public class CarsTest {
 
     @Test
     public void createReturnsCar() {
-        Car request = ObjectFactory.createCarDTO("ABC", "Ford", 2020, ObjectFactory.createMoneyDTO(new BigDecimal(20000), "DKK"));
+        Car request = new Car("ABC", "Ford", 2020, new Money(new BigDecimal(20000), "DKK"));
         Car response = cars.create(request);
         assertEquals("ABC", response.getLicenseNumber());
     }

@@ -19,7 +19,7 @@ public class CarDAO implements Cars {
 	private final static String PASSWORD = "password";
 
 	public CarDAO() {
-		helper = new DatabaseHelper<>(JDBC_URL, USERNAME, PASSWORD);
+		this.helper = new DatabaseHelper<>(JDBC_URL, USERNAME, PASSWORD);
 	}
 
 	private static Car createCarDTO(String licenseNo, String model, int year, Money price) {
