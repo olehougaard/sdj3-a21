@@ -3,6 +3,8 @@ package dk.via.web_service;
 import dk.via.cars.CarDAO;
 import dk.via.cars.Car;
 import dk.via.cars.ws.Cars;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,8 +20,9 @@ public class CarsImpl {
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public void handleNullPointer() {}
 
-    public CarsImpl() {
-        this.dao = new CarDAO();
+    @Autowired
+    public CarsImpl(Cars dao) {
+        this.dao = dao;
     }
 
     @GetMapping

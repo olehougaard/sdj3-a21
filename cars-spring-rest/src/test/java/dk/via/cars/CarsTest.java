@@ -13,7 +13,7 @@ public class CarsTest {
 
     @Before
     public void setUp() {
-        cars = new CarsImpl();
+        cars = new CarsImpl(new CarsFake());
     }
 
     @Test
